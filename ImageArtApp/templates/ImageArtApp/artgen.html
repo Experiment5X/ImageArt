@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Art Generator</title>
+</head>
+<body>
+
+{% load static %}
+<div>
+<img src="{% static "ImageArtApp/image.png" %}" alt="My image"/>
+<form action="/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+</div>
+
+</body>
+</html>
