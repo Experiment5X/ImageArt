@@ -13,9 +13,9 @@ class ImageGenerator:
 
         code = 'for y in range(0, height):\n'
         code += '\tfor x in range(0, width):\n'
-        code += '\t\timage[y, x, 0] = ' + self.red_func + '\n'
+        code += '\t\timage[y, x, 2] = ' + self.red_func + '\n'
         code += '\t\timage[y, x, 1] = ' + self.green_func + '\n'
-        code += '\t\timage[y, x, 2] = ' + self.blue_func + '\n'
+        code += '\t\timage[y, x, 0] = ' + self.blue_func + '\n'
         exec(code)
 
         return image

@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
+{% load bootstrap4 %}
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static "ImageArtApp/style.css" %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static "ImageArtApp/js/main.js" %}"></script>
     <title>Art Generator</title>
 </head>
 <body>
-
-{% load static %}
-<div>
-<img src="{% static "ImageArtApp/image.png" %}" alt="My image"/>
-<form action="/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit" />
-</form>
-</div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <img id="image-art" class="mb-3 mt-3 rounded centered" src="{% static "ImageArtApp/image.png" %}" alt="My image" width="500px" height="500px"/>
+                    <form id="image-gen-form" action="/" method="post">
+                        {% csrf_token %}
+                        {% bootstrap_form form %}
+                            {% buttons %}
+                                <button type="submit" class="btn btn-primary">Make Image</button>
+                            {% endbuttons %}
+                    </form>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
